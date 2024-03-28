@@ -26,21 +26,23 @@ public class WorldSwitch : MonoBehaviour
 
     private  void ChangeWorld()
     {
+          if (Input.GetKeyDown(KeyCode.F))
+        {
         HandleEnvoirement();
         HandleEnemy();
         playerHandler.HandlePlayer();
         enemyHandler.HandleEnemy();
+        }
     }
     private void HandleEnvoirement()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
+
             realbool = !realbool;
             acidbool = !acidbool;
             real.SetActive(realbool);
             acid.SetActive(acidbool);
 
-        }
+
     }
     private void HandleEnemy()
     {
