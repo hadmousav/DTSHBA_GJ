@@ -6,6 +6,8 @@ public class WorldSwitch : MonoBehaviour
 {
     [SerializeField] GameObject acid;
     [SerializeField] GameObject real;
+    [SerializeField] PlayerHandler playerHandler;
+    [SerializeField] EnemyHandler enemyHandler;
 
     bool acidbool = false;
     bool realbool = true;
@@ -19,13 +21,30 @@ public class WorldSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeWorld();
+    }
+
+    private  void ChangeWorld()
+    {
+        HandleEnvoirement();
+        HandleEnemy();
+        playerHandler.HandlePlayer();
+        enemyHandler.HandleEnemy();
+    }
+    private void HandleEnvoirement()
+    {
         if (Input.GetKeyDown(KeyCode.F))
         {
-             realbool= !realbool;
-             acidbool= !acidbool;
+            realbool = !realbool;
+            acidbool = !acidbool;
             real.SetActive(realbool);
             acid.SetActive(acidbool);
 
         }
     }
+    private void HandleEnemy()
+    {
+        
+    }
+
 }
